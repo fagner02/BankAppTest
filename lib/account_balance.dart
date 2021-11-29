@@ -94,8 +94,8 @@ class AccountBalance extends StatelessWidget {
                           parent: AlwaysScrollableScrollPhysics()),
                       child: Column(
                         children: [
-                          HistoryCard(),
-                          HistoryCard(),
+                          const Center(child: HistoryCard()),
+                          const Center(child: HistoryCard()),
                         ],
                       ),
                     ),
@@ -111,7 +111,7 @@ class AccountBalance extends StatelessWidget {
 }
 
 class HistoryCard extends StatefulWidget {
-  HistoryCard({Key? key}) : super(key: key);
+  const HistoryCard({Key? key}) : super(key: key);
 
   @override
   _HistoryCardState createState() => _HistoryCardState();
