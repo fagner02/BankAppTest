@@ -93,9 +93,9 @@ class AccountBalance extends StatelessWidget {
                       physics: const BouncingScrollPhysics(
                           parent: AlwaysScrollableScrollPhysics()),
                       child: Column(
-                        children: [
-                          const Center(child: HistoryCard()),
-                          const Center(child: HistoryCard()),
+                        children: const [
+                          HistoryCard(),
+                          HistoryCard(),
                         ],
                       ),
                     ),
