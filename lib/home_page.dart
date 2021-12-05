@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:testflutter/account_balance.dart';
+import 'package:testflutter/card_page.dart';
+import 'package:testflutter/credit_card_display.dart';
 import 'package:testflutter/data.dart';
 import 'theme.dart';
 import 'info_card.dart';
 import 'account_balance.dart';
 import 'title_bar.dart';
 import 'data.dart';
-import 'package:flutter_svg/svg.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -21,7 +21,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
     return Scaffold(
       backgroundColor: AppTheme.backColor,
       body: CustomScrollView(
@@ -32,10 +31,12 @@ class _MyHomePageState extends State<MyHomePage> {
             toolbarHeight: 0.1,
             backgroundColor: AppTheme.primaryColor,
             elevation: 0,
-            floating: true,
-            snap: true,
+            flexibleSpace: Container(
+              color: AppTheme.primaryColor,
+              height: size.height,
+              width: size.width,
+            ),
             pinned: true,
-            shadowColor: Colors.transparent,
             stretch: true,
           ),
           SliverList(
@@ -70,45 +71,52 @@ class _MyHomePageState extends State<MyHomePage> {
                 margin: EdgeInsets.symmetric(horizontal: size.width * 0.1),
                 padding: const EdgeInsets.all(0),
                 borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                    bottomLeft: Radius.circular(0),
-                    bottomRight: Radius.circular(20)),
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Container(
-                      height: size.height * 0.1,
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20)),
-                        color: AppTheme.backColor,
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: const [
-                          Padding(
-                            padding: EdgeInsets.all(15.0),
-                            child: Text(
-                              "Credit cards",
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black,
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, CreditCardRoute());
+                  },
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Container(
+                        height: size.height * 0.1,
+                        margin: const EdgeInsets.only(top: 170),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20)),
+                          color: Colors.purple,
+                        ),
+                        alignment: Alignment.bottomCenter,
+                        child: Row(
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 15.0, left: 26),
+                              child: Text(
+                                "CARDS",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  letterSpacing: 3,
+                                  fontFamily: "fifteen",
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Positioned(
-                      top: 50,
-                      child: SvgPicture.asset(
-                        'assets/credit_card.svg',
-                        width: size.width * 0.8,
-                      ),
-                    )
-                  ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, CreditCardRoute());
+                        },
+                        child: const CreditCardDisplay(),
+                      )
+                    ],
+                  ),
                 ),
               )
             ]),
