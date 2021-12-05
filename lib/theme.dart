@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static Color primaryColor = const Color(0xFF700092);
-  static Color creditCardColor = const Color(0xFFC532FF);
+  static Color creditCardColor = const Color.fromARGB(255, 199, 79, 255);
   static Color backColor = Colors.white;
   static Color titleColor = Colors.white;
   static Color cardTitleColor = Colors.grey;

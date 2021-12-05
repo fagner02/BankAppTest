@@ -14,9 +14,9 @@ class AccountBalanceRoute extends PageRouteBuilder {
             var begin = const Offset(1, 0);
             var end = Offset.zero;
             var curve = Curves.ease;
-
-            var tween =
-                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            var tween = Tween(begin: begin, end: end).chain(
+              CurveTween(curve: curve),
+            );
 
             return SlideTransition(
               position: animation.drive(tween),
@@ -46,7 +46,7 @@ class AccountBalance extends StatelessWidget {
                 color: AppTheme.titleColor,
               ),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.pop(context, AccountBalanceRoute());
               },
             ),
             card: InfoCard(

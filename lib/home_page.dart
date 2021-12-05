@@ -67,54 +67,39 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: const TextStyle(
                         fontSize: 23, fontWeight: FontWeight.bold)),
               ),
-              InfoCard(
-                margin: EdgeInsets.symmetric(horizontal: size.width * 0.1),
-                padding: const EdgeInsets.all(0),
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                ),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(context, CreditCardRoute());
-                  },
-                  child: Stack(
-                    clipBehavior: Clip.none,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    CreditCardRoute(),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.purple,
+                  ),
+                  margin: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.1, vertical: 10),
+                  alignment: Alignment.topCenter,
+                  child: Column(
                     children: [
+                      const CreditCardDisplay(),
                       Container(
-                        height: size.height * 0.1,
-                        margin: const EdgeInsets.only(top: 170),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              bottomRight: Radius.circular(20)),
-                          color: Colors.purple,
-                        ),
-                        alignment: Alignment.bottomCenter,
-                        child: Row(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(bottom: 15.0, left: 26),
-                              child: Text(
-                                "CARDS",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  letterSpacing: 3,
-                                  fontFamily: "fifteen",
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ],
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 23),
+                        alignment: Alignment.topLeft,
+                        child: const Text(
+                          "CARDS",
+                          style: TextStyle(
+                            fontSize: 20,
+                            letterSpacing: 3,
+                            fontFamily: "fifteen",
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(context, CreditCardRoute());
-                        },
-                        child: const CreditCardDisplay(),
-                      )
                     ],
                   ),
                 ),
