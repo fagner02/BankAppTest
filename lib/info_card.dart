@@ -10,6 +10,7 @@ class InfoCard extends StatefulWidget {
   final EdgeInsets? margin;
   final CrossAxisAlignment? horizontalAlign;
   final double? fontSize;
+  final BorderRadius? borderRadius;
   final void Function()? onTap;
   const InfoCard(
       {Key? key,
@@ -21,6 +22,7 @@ class InfoCard extends StatefulWidget {
       this.margin,
       this.horizontalAlign,
       this.fontSize,
+      this.borderRadius,
       this.onTap})
       : super(key: key);
 
@@ -39,12 +41,13 @@ class CardState extends State<InfoCard> {
         padding: widget.padding ?? const EdgeInsets.all(20),
         height: widget.height,
         width: widget.width ?? MediaQuery.of(context).size.width * 0.8,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.all(
-              Radius.circular(20),
-            ),
-            boxShadow: [
+            borderRadius: widget.borderRadius ??
+                const BorderRadius.all(
+                  Radius.circular(20),
+                ),
+            boxShadow: const [
               BoxShadow(
                   color: Colors.black12,
                   offset: Offset(0, 0),
