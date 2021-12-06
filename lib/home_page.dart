@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:testflutter/account_balance.dart';
 import 'package:testflutter/card_page.dart';
 import 'package:testflutter/credit_card_display.dart';
@@ -21,13 +22,22 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: Colors.white));
     return Scaffold(
       backgroundColor: AppTheme.backColor,
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(
             parent: AlwaysScrollableScrollPhysics()),
+        anchor: 0,
         slivers: <Widget>[
           SliverAppBar(
+            floating: true,
+            onStretchTrigger: () async {
+              debugPrint('stretchTriggerOffset');
+            },
             toolbarHeight: 0.1,
             backgroundColor: AppTheme.primaryColor,
             elevation: 0,
@@ -38,6 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             pinned: true,
             stretch: true,
+            expandedHeight: 0,
           ),
           SliverList(
             delegate: SliverChildListDelegate([
@@ -48,7 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontSize: 25,
                   child: Text(
                     DataStorage.userName,
-                    style: const TextStyle(fontSize: 27),
+                    style: const TextStyle(
+                      fontSize: 27,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
@@ -57,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   setState(() {
                     DataStorage.currentBalance += 4;
                   });
+
                   Navigator.push(context, AccountBalanceRoute());
                 },
                 margin: EdgeInsets.symmetric(
@@ -68,11 +83,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontSize: 23, fontWeight: FontWeight.bold)),
               ),
               GestureDetector(
-                onTap: () {
+                onTap: () async {
                   Navigator.push(
                     context,
                     CreditCardRoute(),
                   );
+                  Future.delayed(const Duration(milliseconds: 180), () {
+                    SystemChrome.setSystemUIOverlayStyle(
+                      const SystemUiOverlayStyle(
+                          systemNavigationBarColor: Colors.purple),
+                    );
+                  });
                 },
                 child: Container(
                   decoration: BoxDecoration(

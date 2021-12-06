@@ -34,6 +34,12 @@ class AccountBalance extends StatelessWidget {
     DataStorage.currentBalance -= 1;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppTheme.primaryColor,
+        automaticallyImplyLeading: false,
+        elevation: 0,
+        toolbarHeight: 0,
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
