@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:testflutter/CreditCardPage/credit_card_display.dart';
+import 'package:testflutter/credit_card_page/credit_card_display.dart';
 import 'package:testflutter/data.dart';
-import 'AccountBalancePage/account_balance_route.dart';
-import 'CreditCardPage/card_route.dart';
+import 'account_balance_page/account_balance_route.dart';
+import 'credit_card_page/card_route.dart';
 import 'theme.dart';
 import 'info_card.dart';
 import 'title_bar.dart';

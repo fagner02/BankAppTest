@@ -2,7 +2,7 @@ import 'column_info.dart';
 import 'package:flutter/material.dart';
 import 'credit_card_display.dart';
 import 'package:testflutter/info_card.dart';
-import 'package:testflutter/CreditCardPage/card_route.dart';
+import 'package:testflutter/credit_card_page/card_route.dart';
 
 class CreditCard extends StatefulWidget {
   const CreditCard({Key? key}) : super(key: key);
