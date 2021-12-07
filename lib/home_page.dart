@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:testflutter/account_balance.dart';
-import 'package:testflutter/card_page.dart';
-import 'package:testflutter/credit_card_display.dart';
+import 'package:testflutter/CreditCardPage/credit_card_display.dart';
 import 'package:testflutter/data.dart';
+import 'AccountBalancePage/account_balance_route.dart';
+import 'CreditCardPage/card_route.dart';
 import 'theme.dart';
 import 'info_card.dart';
-import 'account_balance.dart';
 import 'title_bar.dart';
 import 'data.dart';
 

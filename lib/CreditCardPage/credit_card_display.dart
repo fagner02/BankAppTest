@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import 'data.dart';
-import 'theme.dart';
+import '/data.dart';
+import '/theme.dart';
 
 class CreditCardDisplay extends StatelessWidget {
   final String? cardNumber;
