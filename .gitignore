@@ -30,7 +30,16 @@ README.md
 .packages
 .pub-cache/
 .pub/
-/build/
+build/app/generated
+build/app/kotlin
+build/app/reports
+build/app/tmp
+build/app/intermediates
+build/app/outputs/sdk-dependencies
+build/app/outputs/mapping
+build/app/outputs/logs
+build/app/outputs/apk
+
 
 # Web related
 lib/generated_plugin_registrant.dart
